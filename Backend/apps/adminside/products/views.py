@@ -20,7 +20,7 @@ class CategoryListView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [IsSuperAdmin()]   
+        return [IsSuperAdmin()]
 
     def get(self, request):
         try:
@@ -44,7 +44,7 @@ class SubCategoryListView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [IsSuperAdmin()]       
+        return [IsSuperAdmin()]
 
     def get(self, request):
         try:
@@ -68,7 +68,7 @@ class SizeListView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [IsSuperAdmin()]     
+        return [IsSuperAdmin()]
 
     def get(self, request):
         try:
@@ -92,11 +92,18 @@ class ProductListView(APIView):
     def get_permissions(self):
         if self.request.method == 'GET':
             return [AllowAny()]
-        return [IsAdminOrSuperAdmin()]  
+        return [IsAdminOrSuperAdmin()]
 
     def get(self, request):
         try:
-            products = Product.objects.all()
+            is_admin = (
+                request.user.is_authenticated and
+                hasattr(request.user, 'role') and
+                request.user.role in ['admin', 'superadmin']
+            )
+
+            # Admin sees all products, users only see active (in stock) ones
+            products = Product.objects.all() if is_admin else Product.objects.filter(is_active=True)
 
             search = request.query_params.get('search')
             if search:
@@ -165,12 +172,20 @@ class ProductDetailView(APIView):
         if self.request.method == 'GET':
             return [AllowAny()]
         if self.request.method == 'DELETE':
-            return [IsSuperAdmin()]  
-        return [IsAdminOrSuperAdmin()]  
+            return [IsSuperAdmin()]
+        return [IsAdminOrSuperAdmin()]
 
     def get(self, request, pk):
         try:
-            product = Product.objects.filter(pk=pk).first()
+            is_admin = (
+                request.user.is_authenticated and
+                hasattr(request.user, 'role') and
+                request.user.role in ['admin', 'superadmin']
+            )
+
+            # Admin sees any product, users only see active ones
+            product = Product.objects.filter(pk=pk).first() if is_admin else Product.objects.filter(pk=pk, is_active=True).first()
+
             if not product:
                 return Response({'error': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
             return Response(ProductSerializer(product).data)

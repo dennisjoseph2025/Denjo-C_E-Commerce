@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { jwtDecode } from 'jwt-decode'
 import { API_BASE } from '../../config/apiConfig'
 
 // Axios configuration
@@ -23,25 +24,10 @@ const onTokenRefreshed = (accessToken) => {
 const parseJwt = (token) => {
     try {
         if (!token || typeof token !== 'string') return null
-        const parts = token.split('.')
-        if (parts.length !== 3) return null
-
-        const base64Url = parts[1]
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-        const jsonPayload = decodeURIComponent(
-            atob(base64)
-                .split('')
-                .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-                .join('')
-        )
-        return JSON.parse(jsonPayload)
+        return jwtDecode(token)
     } catch (e) {
-        try {
-            return JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')))
-        } catch (e2) {
-            console.warn('JWT parse failed:', e2.message)
-            return null
-        }
+        console.warn('JWT parse failed:', e.message)
+        return null
     }
 }
 
