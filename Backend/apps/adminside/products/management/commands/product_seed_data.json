@@ -1,0 +1,241 @@
+{
+  "categories": ["Tops", "Shoes"],
+  "subcategories": [
+    {"name": "Oversized T-shirt", "category": "Tops"},
+    {"name": "T-shirt",           "category": "Tops"},
+    {"name": "Full Sleeve T-Shirt","category": "Tops"},
+    {"name": "Hoodie",            "category": "Tops"},
+    {"name": "Jackets",           "category": "Tops"},
+    {"name": "High Top Sneakers", "category": "Shoes"},
+    {"name": "Low Top Sneakers",  "category": "Shoes"},
+    {"name": "Mid Top Sneakers",  "category": "Shoes"}
+  ],
+  "sizes": ["S", "M", "L", "XL", "XXL", "7", "8", "9", "10"],
+  "products": [
+    {
+      "name": "Peacemaker: Peace Out",
+      "description": "Hero off-duty. This tee is your soft exit from the daily grind - relaxed fit, comic soul, and chill vibes only.",
+      "price": "999.00",
+      "category": "Tops",
+      "subcategory": "Oversized T-shirt",
+      "is_featured": true,
+      "is_bestseller": true,
+      "sizes": {"S": 20, "M": 50, "L": 50},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1761820245_5596970.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1761750903_4149249.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1761750903_2288167.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Supima: Onyx",
+      "description": "Make long lasting impressions wherever you go with this t-shirt from our Supima Collection that is made to last! Crafted from the world's strongest cotton, this t-shirt will surely stand the test of time and help create a number of great looks!",
+      "price": "799.00",
+      "category": "Tops",
+      "subcategory": "T-shirt",
+      "is_featured": false,
+      "is_bestseller": false,
+      "sizes": {"S": 20, "M": 20, "L": 20},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1769234181_9636644.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1769234181_2108339.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1769234181_9321382.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "TSS Originals: Olive Haze",
+      "description": "Oversized for max comfort and zero fuss. This hoodie is your go-to for lazy days or streetwear cool.",
+      "price": "2299.00",
+      "category": "Tops",
+      "subcategory": "Hoodie",
+      "is_featured": true,
+      "is_bestseller": true,
+      "sizes": {"S": 25, "M": 24, "L": 30},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1767769878_7952915.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1766999361_5885681.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1766999361_7882971.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Casual Classics: Skull Gamer",
+      "description": "Not every tee needs to shout. This one does the talking quietly - clean fit, comfy fabric, and that laid-back vibe you can wear anywhere.",
+      "price": "799.00",
+      "category": "Tops",
+      "subcategory": "T-shirt",
+      "is_featured": true,
+      "is_bestseller": false,
+      "sizes": {"S": 25, "M": 20, "L": 10, "XXL": 15},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1759310420_7742670.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1759310420_8992271.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1760077064_5613412.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Marvel: Dark Venom",
+      "description": "Shop for Marvel: Dark Venom Oversized T-Shirts.",
+      "price": "1599.00",
+      "category": "Tops",
+      "subcategory": "Full Sleeve T-Shirt",
+      "is_featured": false,
+      "is_bestseller": false,
+      "sizes": {"S": 20, "M": 35, "L": 25, "XL": 10},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1772877868_2994323.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1772877868_7198205.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1772877868_9993964.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Ben 10: Upgrade",
+      "description": "Alien squad energy, locked in a comfy tee. Throw it on and let the nostalgia do its thing.",
+      "price": "1299.00",
+      "category": "Tops",
+      "subcategory": "Oversized T-shirt",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 35, "M": 30, "L": 27, "XL": 14, "XXL": 20},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1755170272_8454725.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1755170272_9722648.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1755170272_9108692.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Batman: Logo (Reflective)",
+      "description": "Gotham needs a beacon of hope. Wear it on your chest! Designed for those who appreciate lounging around in style, these tees are a wardrobe essential.",
+      "price": "1299.00",
+      "category": "Tops",
+      "subcategory": "Oversized T-shirt",
+      "is_featured": true,
+      "is_bestseller": false,
+      "sizes": {"S": 18, "M": 30},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1754297985_3757339.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1754297985_8592598.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1754297985_3595318.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Marvel: Avengers Assemble",
+      "description": "Strength comes with unity! And if a demi-God, a Super Soldier, a living legend who kinda lives up to the legend, a man with anger management issues, a couple of master assassins, AND a big fella come together as a team; what do you get?",
+      "price": "1199.00",
+      "category": "Tops",
+      "subcategory": "Full Sleeve T-Shirt",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 17, "M": 32},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1709704115_3115828.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1709704115_3236186.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1709704115_2717858.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "One Piece: Pirates",
+      "description": "The struggle is real: wanting to just lazy around while also feeling prepared to, you know, maybe answer the door if the pizza guy arrives. Enter the men's hoodies, your secret weapon for both relaxation and the outside world.",
+      "price": "2599.00",
+      "category": "Tops",
+      "subcategory": "Hoodie",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 15, "M": 25, "L": 20, "XXL": 10},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734158281_5499150.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734158281_8025971.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734158281_1288507.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Ben 10: Alien Force",
+      "description": "This jacket is for guys who want to carry some of Ben's alien-fighting confidence wherever they go. Some heroes need more than just an Omnitrix - they need the right jacket too.",
+      "price": "2599.00",
+      "category": "Tops",
+      "subcategory": "Jackets",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 11, "M": 22, "L": 18, "XL": 8},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764941845_7020834.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764913342_7483223.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764913342_6979119.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Top Gun: Maverick",
+      "description": "This puffer is packed with warmth but light on weight, making it the perfect shield against the winter chill.",
+      "price": "3999.00",
+      "category": "Tops",
+      "subcategory": "Jackets",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 10, "M": 20, "L": 10, "XL": 10},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1731672073_6499020.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1731672073_1235240.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1731672073_1235240.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Daredevil: Fearless",
+      "description": "Official Licensed Daredevil Oversized Full Sleeve T-Shirt.",
+      "price": "1199.00",
+      "category": "Tops",
+      "subcategory": "Full Sleeve T-Shirt",
+      "is_featured": false,
+      "is_bestseller": true,
+      "sizes": {"S": 14, "M": 14, "L": 16, "XL": 8},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1770221949_5843604.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1770221987_2927190.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1770221834_1132999.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Batman: The Dark Knight 2.0",
+      "description": "Step into the shadows with our Batman high-top shoes for men! Designed for those who love to make a bold statement for fans of the Caped Crusader, these high tops easily blend comfort and style.",
+      "price": "3699.00",
+      "category": "Shoes",
+      "subcategory": "High Top Sneakers",
+      "is_featured": false,
+      "is_bestseller": false,
+      "sizes": {"7": 20, "8": 24, "9": 18, "10": 10},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764409343_7588229.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764409343_7588229.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1764409343_6351800.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "Urban Blaze: Inferno",
+      "description": "Shop for Urban Blaze: Fury Men Low Top Sneakers.",
+      "price": "2599.00",
+      "category": "Shoes",
+      "subcategory": "Low Top Sneakers",
+      "is_featured": false,
+      "is_bestseller": false,
+      "sizes": {"7": 19, "8": 23, "9": 15},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751449862_3775782.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1742902361_5242462.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751449885_6975968.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    },
+    {
+      "name": "UBZ Ascend: Black",
+      "description": "A modern mid-top sneaker designed for everyday versatility, blending clean minimalism with playful character.",
+      "price": "3500.00",
+      "category": "Shoes",
+      "subcategory": "Mid Top Sneakers",
+      "is_featured": false,
+      "is_bestseller": false,
+      "sizes": {"7": 20, "8": 40, "9": 25, "10": 15},
+      "images": [
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1767510969_8057480.jpg?w=480&dpr=2", "is_primary": true},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1767182080_5510279.jpg?w=480&dpr=2", "is_primary": false},
+        {"url": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1767182080_3883067.jpg?w=480&dpr=2", "is_primary": false}
+      ]
+    }
+  ]
+}
