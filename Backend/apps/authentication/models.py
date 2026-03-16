@@ -26,17 +26,4 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.name
-
-
-
-    @property
-    def is_superadmin(self):
-        return self.role == 'superadmin'
-
-    @property
-    def is_admin(self):
-        return self.role == 'admin'
-
-    @property
-    def is_regular_user(self):
-        return self.role == 'user'
+    

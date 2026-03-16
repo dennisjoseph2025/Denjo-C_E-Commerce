@@ -53,10 +53,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    @property
-    def is_in_stock(self):
-        return self.stock > 0
-
     class Meta:
         db_table = 'products'
         ordering = ['-created_at']

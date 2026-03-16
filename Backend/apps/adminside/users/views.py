@@ -14,6 +14,7 @@ class UserPagination(PageNumberPagination):
 
 
 class AdminUserListView(APIView):
+    # List all regular users
     permission_classes = [IsAdminOrSuperAdmin]
 
     def get(self, request):
@@ -37,6 +38,7 @@ class AdminUserListView(APIView):
 
 
 class AdminStaffListView(APIView):
+    # List all admins and superadmins
     permission_classes = [IsAdminOrSuperAdmin]
 
     def get(self, request):
@@ -60,6 +62,7 @@ class AdminStaffListView(APIView):
 
 
 class AdminUserDetailView(APIView):
+    # Get or delete a regular user
     permission_classes = [IsAdminOrSuperAdmin]
 
     def get(self, request, pk):
@@ -102,7 +105,7 @@ class AdminToggleBlockUserView(APIView):
 
 
 class AdminToggleBlockStaffView(APIView):
-    # Block or unblock an admin — superadmin only
+    # Block or unblock an admin
     permission_classes = [IsSuperAdmin]
 
     def post(self, request, pk):
@@ -121,7 +124,7 @@ class AdminToggleBlockStaffView(APIView):
 
 
 class AdminPromoteUserView(APIView):
-    # Promote a regular user to admin — superadmin only
+    # Promote a regular user to admin
     permission_classes = [IsSuperAdmin]
 
     def post(self, request, pk):
@@ -138,7 +141,7 @@ class AdminPromoteUserView(APIView):
 
 
 class AdminDemoteStaffView(APIView):
-    # Demote an admin back to regular user — superadmin only
+    # Demote an admin back to regular user
     permission_classes = [IsSuperAdmin]
 
     def post(self, request, pk):
@@ -155,7 +158,7 @@ class AdminDemoteStaffView(APIView):
 
 
 class AdminDeleteStaffView(APIView):
-    # Delete an admin account — superadmin only
+    # Permanently delete an admin account
     permission_classes = [IsSuperAdmin]
 
     def delete(self, request, pk):
