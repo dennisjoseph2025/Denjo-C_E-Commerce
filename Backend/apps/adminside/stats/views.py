@@ -23,7 +23,7 @@ class CompanyStatsView(APIView):
             delivered_orders  = orders.filter(status='delivered').count()
             cancelled_orders  = orders.filter(status='cancelled').count()
         except Exception as e:
-            return Response({'message':'error in order stats','error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)    
+            return Response({'error': str(e)+' error in order stats'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)    
         try:
             # Revenue — only confirmed, shipped, delivered
             total_revenue     = orders.filter(status__in=['confirmed', 'shipped', 'delivered']).aggregate(total=Sum('total_price'))['total'] or 0
@@ -31,7 +31,7 @@ class CompanyStatsView(APIView):
             shipped_revenue   = orders.filter(status='shipped').aggregate(total=Sum('total_price'))['total'] or 0
             delivered_revenue = orders.filter(status='delivered').aggregate(total=Sum('total_price'))['total'] or 0
         except Exception as e:
-            return Response({'message':'error in revenue stats','error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' error in revenue stats'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
         try:
             # Products
@@ -41,7 +41,7 @@ class CompanyStatsView(APIView):
             featured_products   = Product.objects.filter(is_featured=True).count()
             bestseller_products = Product.objects.filter(is_bestseller=True).count()
         except Exception as e:
-            return Response({'message':'error in products stats','error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' error in products stats'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
         try:
             
@@ -50,7 +50,7 @@ class CompanyStatsView(APIView):
             active_users  = User.objects.filter(role='user', is_active=True).count()
             blocked_users = User.objects.filter(role='user', is_active=False).count()
         except Exception as e:
-            return Response({'message':'error in user stats','error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' error in user stats'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
         return Response({
             'orders': {

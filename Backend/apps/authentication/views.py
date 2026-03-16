@@ -9,32 +9,41 @@ from .serializer import RegistrationSerializer, UserProfileSerializer, UpdatePro
 
 class RegisterView(APIView):
     def post(self, request):
-        postserializer = RegistrationSerializer(data=request.data)
-        if postserializer.is_valid():
-            user = postserializer.save()
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                'token': {
-                    'refresh': str(refresh),
-                    'access': str(refresh.access_token)
-                },
-                'data': UserProfileSerializer(user).data
-            }, status=status.HTTP_201_CREATED)
-        return Response({'data': postserializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            postserializer = RegistrationSerializer(data=request.data)
+            if postserializer.is_valid():
+                user = postserializer.save()
+                refresh = RefreshToken.for_user(user)
+                return Response({
+                    'token': {
+                        'refresh': str(refresh),
+                        'access': str(refresh.access_token)
+                    },
+                    'data': UserProfileSerializer(user).data
+                }, status=status.HTTP_201_CREATED)
+            return Response({'data': postserializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e) + ' RegisterView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        return Response(UserProfileSerializer(request.user).data)
+        try:
+            return Response(UserProfileSerializer(request.user).data)
+        except Exception as e:
+            return Response({'error': str(e) + ' UserProfileView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def patch(self, request):
-        serializer = UpdateProfileSerializer(request.user, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(UserProfileSerializer(request.user).data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        try:
+            serializer = UpdateProfileSerializer(request.user, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(UserProfileSerializer(request.user).data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e) + ' UserProfileView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class LogoutView(APIView):
@@ -48,3 +57,5 @@ class LogoutView(APIView):
             return Response({'message': 'Logged out successfully'}, status=status.HTTP_200_OK)
         except TokenError:
             return Response({'error': 'Invalid or expired token'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e) + ' LogoutView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

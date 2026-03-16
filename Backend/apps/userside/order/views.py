@@ -18,7 +18,7 @@ class OrderView(APIView):
             orders = Order.objects.filter(user=request.user).order_by('-created_at')
             return Response(OrderSerializer(orders, many=True).data)
         except DatabaseError:
-            return Response({'error': 'Database error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Database error occurred OrderView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -78,11 +78,11 @@ class OrderView(APIView):
             return Response(OrderSerializer(order).data, status=status.HTTP_201_CREATED)
 
         except OperationalError:
-            return Response({'error': 'Database connection error. Please try again.'}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+            return Response({'error': 'Database connection error. Please try again. OrderView post'}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
         except DatabaseError:
-            return Response({'error': 'Order could not be placed. All changes have been rolled back.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Order could not be placed. All changes have been rolled back. OrderView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' OrderView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class OrderDetailView(APIView):
@@ -95,7 +95,7 @@ class OrderDetailView(APIView):
                 return Response({'error': 'Order not found'}, status=status.HTTP_404_NOT_FOUND)
             return Response(OrderSerializer(order).data)
         except DatabaseError:
-            return Response({'error': 'Database error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Database error occurred OrderDetailView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def patch(self, request, pk):
         try:
@@ -125,14 +125,12 @@ class OrderDetailView(APIView):
             return Response(OrderSerializer(order).data)
 
         except OperationalError:
-            return Response({'error': 'Database connection error. Please try again.'}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+            return Response({'error': 'Database connection error. Please try again. OrderDetailView patch'}, status=status.HTTP_503_SERVICE_UNAVAILABLE)
         except DatabaseError:
-            return Response({'error': 'Cancellation failed. All changes have been rolled back.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Cancellation failed. All changes have been rolled back. OrderDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' OrderDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
-# ── Admin Order Views ─────────────────────────────────────────────────────────
 
 class AdminOrderListView(APIView):
     permission_classes = [IsAdminOrSuperAdmin]
@@ -141,19 +139,17 @@ class AdminOrderListView(APIView):
         try:
             orders = Order.objects.all().order_by('-created_at')
 
-            # Filter by status
             status_filter = request.query_params.get('status')
             if status_filter:
                 orders = orders.filter(status=status_filter)
 
-            # Search by user name
             search = request.query_params.get('search')
             if search:
                 orders = orders.filter(user__name__icontains=search)
 
             return Response(OrderSerializer(orders, many=True).data)
         except DatabaseError:
-            return Response({'error': 'Database error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Database error occurred AdminOrderListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminOrderDetailView(APIView):
@@ -166,7 +162,7 @@ class AdminOrderDetailView(APIView):
                 return Response({'error': 'Order not found'}, status=status.HTTP_404_NOT_FOUND)
             return Response(OrderSerializer(order).data)
         except DatabaseError:
-            return Response({'error': 'Database error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Database error occurred AdminOrderDetailView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def patch(self, request, pk):
         try:
@@ -193,6 +189,6 @@ class AdminOrderDetailView(APIView):
             return Response(OrderSerializer(order).data)
 
         except DatabaseError:
-            return Response({'error': 'Database error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Database error occurred AdminOrderDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminOrderDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

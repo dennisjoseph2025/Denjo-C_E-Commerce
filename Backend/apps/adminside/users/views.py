@@ -34,7 +34,7 @@ class AdminUserListView(APIView):
             serializer = UserProfileSerializer(page, many=True)
             return paginator.get_paginated_response(serializer.data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminUserListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminStaffListView(APIView):
@@ -58,7 +58,7 @@ class AdminStaffListView(APIView):
             serializer = UserProfileSerializer(page, many=True)
             return paginator.get_paginated_response(serializer.data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminStaffListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminUserDetailView(APIView):
@@ -72,7 +72,7 @@ class AdminUserDetailView(APIView):
                 return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
             return Response(UserProfileSerializer(user).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminUserDetailView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def delete(self, request, pk):
         try:
@@ -82,7 +82,7 @@ class AdminUserDetailView(APIView):
             user.delete()
             return Response({'message': 'User deleted'}, status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminUserDetailView delete'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminToggleBlockUserView(APIView):
@@ -101,7 +101,7 @@ class AdminToggleBlockUserView(APIView):
             state = 'unblocked' if user.is_active else 'blocked'
             return Response({'message': f'User {state} successfully', 'is_active': user.is_active})
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminToggleBlockUserView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminToggleBlockStaffView(APIView):
@@ -120,7 +120,7 @@ class AdminToggleBlockStaffView(APIView):
             state = 'unblocked' if staff.is_active else 'blocked'
             return Response({'message': f'Admin {state} successfully', 'is_active': staff.is_active})
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminToggleBlockStaffView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminPromoteUserView(APIView):
@@ -137,7 +137,7 @@ class AdminPromoteUserView(APIView):
             user.save()
             return Response({'message': f'{user.name} has been promoted to admin', 'role': user.role})
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminPromoteUserView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminDemoteStaffView(APIView):
@@ -154,7 +154,7 @@ class AdminDemoteStaffView(APIView):
             staff.save()
             return Response({'message': f'{staff.name} has been demoted to user', 'role': staff.role})
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminDemoteStaffView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class AdminDeleteStaffView(APIView):
@@ -170,4 +170,4 @@ class AdminDeleteStaffView(APIView):
             staff.delete()
             return Response({'message': 'Admin deleted'}, status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' AdminDeleteStaffView delete'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

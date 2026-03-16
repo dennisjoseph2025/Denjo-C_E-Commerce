@@ -26,7 +26,7 @@ class CategoryListView(APIView):
         try:
             return Response(CategorySerializer(Category.objects.all(), many=True).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' CategoryListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -36,7 +36,7 @@ class CategoryListView(APIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' CategoryListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # ── SubCategory ───────────────────────────────────────────────
@@ -50,7 +50,7 @@ class SubCategoryListView(APIView):
         try:
             return Response(SubCategorySerializer(SubCategory.objects.all(), many=True).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' SubCategoryListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -60,7 +60,7 @@ class SubCategoryListView(APIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) +' SubCategoryListView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # ── Size ──────────────────────────────────────────────────────
@@ -74,7 +74,7 @@ class SizeListView(APIView):
         try:
             return Response(SizeSerializer(Size.objects.all(), many=True).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' SizeListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -84,7 +84,7 @@ class SizeListView(APIView):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' SizeListView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # ── Product ───────────────────────────────────────────────────
@@ -135,7 +135,7 @@ class ProductListView(APIView):
         except ValueError:
             return Response({'error': 'Invalid price value'}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' ProductListView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -164,7 +164,7 @@ class ProductListView(APIView):
                 return Response(ProductSerializer(product).data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' ProductListView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class ProductDetailView(APIView):
@@ -190,7 +190,7 @@ class ProductDetailView(APIView):
                 return Response({'error': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
             return Response(ProductSerializer(product).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' ProductDetailView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def patch(self, request, pk):
         try:
@@ -223,7 +223,7 @@ class ProductDetailView(APIView):
                 return Response(ProductSerializer(product).data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' ProductDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def delete(self, request, pk):
         try:
@@ -233,7 +233,7 @@ class ProductDetailView(APIView):
             product.delete()
             return Response({'message': 'Product deleted'}, status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' ProductDetailView delete'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class FeaturedProductsView(APIView):
@@ -244,7 +244,7 @@ class FeaturedProductsView(APIView):
             products = Product.objects.filter(is_featured=True, is_active=True)
             return Response(ProductSerializer(products, many=True).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' FeaturedProductsView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class BestsellerProductsView(APIView):
@@ -255,4 +255,4 @@ class BestsellerProductsView(APIView):
             products = Product.objects.filter(is_bestseller=True, is_active=True)
             return Response(ProductSerializer(products, many=True).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e)+' FeaturedProductsView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

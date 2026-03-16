@@ -16,7 +16,7 @@ class CartView(APIView):
             total      = sum(item.subtotal for item in items)
             return Response({'items': serializer.data, 'total': total})
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' CartView get'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def post(self, request):
         try:
@@ -40,14 +40,14 @@ class CartView(APIView):
                 return Response(CartItemSerializer(item).data, status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' CartView post'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def delete(self, request):
         try:
             CartItem.objects.filter(user=request.user).delete()
             return Response({'message': 'Cart cleared'}, status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' CartView delete'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 class CartItemDetailView(APIView):
@@ -67,7 +67,7 @@ class CartItemDetailView(APIView):
             item.save()
             return Response(CartItemSerializer(item).data)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' CartItemDetailView patch'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def delete(self, request, pk):
         try:
@@ -77,4 +77,4 @@ class CartItemDetailView(APIView):
             item.delete()
             return Response({'message': 'Item removed'}, status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': str(e) + ' CartItemDetailView delete'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
