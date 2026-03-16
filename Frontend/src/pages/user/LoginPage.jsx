@@ -119,14 +119,7 @@ const LoginPage = () => {
                             />
                         </div>
 
-                        {/* Forgot password */}
-                        <div className="flex justify-end">
-                            <button type="button"
-                                className="text-xs text-chiffon/40 hover:text-chiffon/70 transition-colors cursor-pointer">
-                                Forgot password?
-                            </button>
-                        </div>
-
+                        
                         {/* Submit */}
                         <button
                             id="login-submit"
