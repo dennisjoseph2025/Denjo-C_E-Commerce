@@ -21,12 +21,12 @@ class SizeAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
-class ProductSizeInline(admin.TabularInline):  # shows sizes inside product page
+class ProductSizeInline(admin.TabularInline): 
     model = ProductSize
-    extra = 1                                  # shows 1 empty row to add size
+    extra = 1                   
 
 
-class ProductImageInline(admin.TabularInline):  # shows images inside product page
+class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
 
@@ -36,4 +36,4 @@ class ProductAdmin(admin.ModelAdmin):
     list_display  = ['name', 'category', 'subcategory', 'price', 'stock', 'is_active', 'is_featured', 'is_bestseller']
     list_filter   = ['is_active', 'is_featured', 'is_bestseller', 'category']
     search_fields = ['name']
-    inlines       = [ProductSizeInline, ProductImageInline]  # sizes + images inside product
+    inlines       = [ProductSizeInline, ProductImageInline]  

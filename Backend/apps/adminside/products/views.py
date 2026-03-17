@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
 from .models import Category, SubCategory, Size, Product, ProductImage, ProductSize
-from .serializer import CategorySerializer, SubCategorySerializer, SizeSerializer, ProductSerializer, ProductImageSerializer, ProductSizeSerializer
+from .serializer import CategorySerializer, SubCategorySerializer, SizeSerializer, ProductSerializer
 from apps.authentication.permissions import IsAdminOrSuperAdmin, IsSuperAdmin
 
 

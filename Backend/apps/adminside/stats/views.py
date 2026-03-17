@@ -16,7 +16,7 @@ class CompanyStatsView(APIView):
             orders = Order.objects.all()
 
             # Order counts by status
-            total_orders   = orders.count()
+            total_orders      = orders.count()
             pending_orders    = orders.filter(status='pending').count()
             confirmed_orders  = orders.filter(status='confirmed').count()
             shipped_orders    = orders.filter(status='shipped').count()
