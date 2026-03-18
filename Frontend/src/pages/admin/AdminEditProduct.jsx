@@ -176,7 +176,7 @@ const AdminEditProduct = () => {
                             <p className="text-xs text-slate-500 mt-1 uppercase tracking-wider">Manage availability across variants.</p>
                         </div>
                         <button type="button" onClick={addSizeEntry} className="text-xs font-bold uppercase tracking-widest text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-2 group">
-                             <span className="p-1 rounded-md bg-indigo-500/10 group-hover:bg-indigo-500/20 transition-colors">
+                            <span className="p-1 rounded-md bg-indigo-500/10 group-hover:bg-indigo-500/20 transition-colors">
                                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" /></svg>
                             </span>
                             Add Size
