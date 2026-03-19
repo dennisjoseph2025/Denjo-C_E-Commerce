@@ -1,1 +1,1 @@
-export const API_BASE = 'https://denjo-c-e-commerce.up.railway.app/';
+export const API_BASE = 'http://13.60.31.43';
