@@ -1,1 +1,1 @@
-export const API_BASE = 'http://13.60.31.43';
+export const API_BASE = 'https://denjo-c.duckdns.org';
